@@ -12,6 +12,21 @@ void f(int a1[],int a2[], int arr[])
 	cout << arr[i] << "   ";
 	}
 
+//arranging in ascending order
+for (int i=0; i<9; i++)
+	{
+		for (int j=i; j<9; j++)
+		{
+		if (arr[i] > arr[j])
+			{
+			int a = arr[i];
+			arr[i] = arr[j];
+			arr[j] = a;
+		}	}
+	}
+cout << endl;
+cout << "The maximum number is: " << arr[0] << endl;
+cout << "The minimum number is: " << arr[8] << endl;
 }
 
 
@@ -24,7 +39,6 @@ int arr[9];
 
 f(a1,a2,arr);
 
-cout << endl;
 
 return 0;
 }
