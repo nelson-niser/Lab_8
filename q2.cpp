@@ -1,39 +1,19 @@
 #include<iostream>
 using namespace std;
 
-int largest(int arr[])
+void f(int a1[],int a2[], int arr[])
 {
-	int a=arr[0];
-	for (int i=1; i<9; i++)
+
+	for(int i=0; i<9; i++)
 	{
-	if (a>arr[i])	a = a;
-	else	a = arr[i];
+	if(i<5)	arr[i]=a1[i];
+	else	arr[i]=a2[i-5];
+	
+	cout << arr[i] << "   ";
 	}
-	return a;
-}
 
-int smallest(int arr[])
-{
-	int a=arr[0];
-	for (int i=1; i<9; i++)
-	{
-	if (a<arr[i])	a = a;
-	else	a = arr[i];
-	}
-	return a;
-}
-
-double mean(int arr[])
-{
-	double a = 0;
-	for (int i=0; i<9; i++)
-	{	a = a + arr[i];	}
-	return a/9;
-}
-
-int median(int arr[])
-{
-	for (int i=0; i<9; i++)
+//arranging in ascending order
+for (int i=0; i<9; i++)
 	{
 		for (int j=i; j<9; j++)
 		{
@@ -44,43 +24,21 @@ int median(int arr[])
 			arr[j] = a;
 		}	}
 	}
-return arr[5];
+cout << endl;
+cout << "The maximum number is: " << arr[0] << endl;
+cout << "The minimum number is: " << arr[8] << endl;
 }
 
-int highest_frequency(int arr[])
-{
-	for (int i=0; i<9; i++)
-	{
-		for (int j=i; j<9; j++)
-		{
-		if (arr[i] > arr[j])
-			{
-			int a = arr[i];
-			arr[i] = arr[j];
-			arr[j] = a;
-		}	}
-	}
-
-	for (int i=0; i<9; i++)
-	{
-		if (arr[j]==arr[j+1])	j++;
-	}
-
-}
 
 int main()
 {
-int arr[9] = {5,4,9,5,3,7,8,7,7};
 
+int a1[5] = {1,2,3,4,5};
+int a2[4] = {6,7,8,9};
+int arr[9];
 
-cout << "My array = {5,4,9,5,3,7,8,7,7}" << endl;
+f(a1,a2,arr);
 
-
-cout << "Largest element = " << largest(arr) << endl;
-cout << "Smallest element = " << smallest(arr) << endl;
-cout << "Mean = " << mean(arr) << endl;
-cout << "Median = " << median(arr) << endl;
-//cout << "Element with highest frequency = " << highest_frequency(arr) << endl;
 
 return 0;
 }
